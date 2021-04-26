@@ -1,4 +1,5 @@
 import json
+from difflib import get_close_matches
 
 data=json.load(open("C:\\Users\\Snippy066\\Downloads\\data.json"))
 
@@ -10,6 +11,13 @@ def definition(word):
         return data[word.title()]
     elif word.upper() in data:
         return data[word.upper()]
+    elif len(get_close_matches(word,data.keys()))>0:
+        print("do you meant %s instead of " %get_close_matches(word,data.keys())[0])
+        deci=input("if yes enter y :")
+        if(deci=='y'):
+            return data[get_close_matches(word,data.keys())[0]]
+        else:
+            return "Unable to search the word you enter,try to enter correct word"
     else:
         print("Sorry!! this word doesn't exist in dictionary...")
 
