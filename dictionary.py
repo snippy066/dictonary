@@ -28,6 +28,7 @@ while True:
 
     print(out)
     key=input("if you want to continue press y \n if you want to quit press any key :")
+    key.lower()
     if(key=='y'):
         continue
     else:
