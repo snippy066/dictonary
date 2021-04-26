@@ -13,7 +13,8 @@ def definition(word):
         return data[word.upper()]
     elif len(get_close_matches(word,data.keys()))>0:
         print("do you meant %s instead of " %get_close_matches(word,data.keys())[0])
-        deci=input("if yes enter y :")
+        deci=input("if yes enter y \n if word isn't you meant then press n or any key:")
+        deci.lower()
         if(deci=='y'):
             return data[get_close_matches(word,data.keys())[0]]
         else:
